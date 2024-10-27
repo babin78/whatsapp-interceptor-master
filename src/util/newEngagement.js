@@ -13,8 +13,8 @@ let onboardingFlow = {
 
 const newEngagement=(client)=>{
 
-console,console.log('a newengaemnet started');
-(`a new engagement started`)
+
+console.log(`a new engagement started`)
 
 }
 
