@@ -1,3 +1,4 @@
+//const { Client } = require("whatsapp-web.js")
 let onboardingFlow = {
     
     'step1': 'QA1',
@@ -11,7 +12,7 @@ let onboardingFlow = {
 
 //const EventEmitter = require('events');
 
-const newEngagement=(client)=>{
+const newEngagement= async (Client)=>{
 
 
 console.log(`a new engagement started`)
@@ -19,4 +20,4 @@ console.log(`a new engagement started`)
 }
 
 
-module.exports=newEngagement;
+module.exports={ newEngagement }

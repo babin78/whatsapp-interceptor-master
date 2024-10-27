@@ -31,9 +31,18 @@ function startClient(id) {
     } )
 
     clients[id].on("authenticated",()=>{
-        console.log("client authenticated")
-        // start a new engagement
-        newEngagement(clients[id]);
+        console.log("client authenticated...")
+        
+        try{
+
+            // start a new engagement
+                    newEngagement(clients[id]);
+                console.log(`after calling`)
+        }
+        catch(e){
+          console.log(`error calling a new engagement ${e}`)
+        }
+        
     })
     
     clients[id].on("message", async (msg) => {
