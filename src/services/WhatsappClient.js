@@ -1,7 +1,7 @@
 const { Client, LocalAuth } = require("whatsapp-web.js")
 const qrcode = require("qrcode-terminal")
 const { MessageMedia } = require("whatsapp-web.js")
-
+const {newEngagement}=require("../util/newEngagement.js")
 const clients = {}
 
 function startClient(id) {
@@ -25,9 +25,19 @@ function startClient(id) {
         console.log("Client is ready!")
         console.log(clients[id])
 
+        
+
+
     } )
+
+    clients[id].on("authenticated",()=>{
+        console.log("client authenticated")
+        // start a new engagement
+        newEngagement(clients[id]);
+    })
     
     clients[id].on("message", async (msg) => {
+       console.log(msg);
         try {
             if (process.env.PROCCESS_MESSAGE_FROM_CLIENT && msg.from != "status@broadcast") {
                 const contact = await msg.getContact()
